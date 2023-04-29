@@ -8,13 +8,25 @@ import { Queue } from "../util/Queue";
 export class ItemsService extends BaseService {
   private readonly ITEMS_LIST_PATH = '/wiki/Items_List';
 
-  public getItems(): Observable<Item[]> {
+  public getItems(): Observable<Map<string, Item>> {
     return this.http.get('assets/items_list.html', {responseType: 'text'}).pipe(
-      switchMap(html => of(html.split('\n')
-                               .filter(line => line.match('<li><a'))
-                               .map(line => this.getItemFromHtml(line))
-                               .flatMap(item => !!item ? [item] : []))),
+      switchMap(html => of(
+        this.getItemMapFromList(html.split('\n')
+                                    .filter(line => line.match('<li><a'))
+                                    .map(line => this.getItemFromHtml(line))
+                                    .flatMap(item => !!item ? [item] : []))
+      )),
     )
+  }
+
+  private getItemMapFromList(items: Item[]): Map<string, Item> {
+    const itemMap = new Map<string, Item>();
+
+    items.forEach(i => {
+      itemMap.set(i.name, i);
+    })
+
+    return itemMap;
   }
 
   private getItemFromHtml(html: string): Item | null {
@@ -60,13 +72,14 @@ export class ItemsService extends BaseService {
     return str.substring(leading, str.length - trailing);
   }
 
-  public getAllItemDetails(items: Item[]): Observable<Item[]> {
-    return from(items).pipe(
+  public getAllItemDetails(items: Map<string, Item>): Observable<Map<string, Item>> {
+    return from(items.values()).pipe(
       mergeMap(item => this.http.get(`assets/items/${item.filename}`, {responseType: 'text'}).pipe(
         map(html => this.getItemDetailsFromHtml(item, html)),
         catchError(_ => of(item))
       )),
       toArray(),
+      map(list => this.getItemMapFromList(list)),
     )
   }
 

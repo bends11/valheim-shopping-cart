@@ -1,7 +1,8 @@
 import { Item } from "../models/item";
 
 export interface ItemsState {
-  items: Item[];
+  items: Map<string, Item>;
   success: boolean;
   fetching: boolean;
+  itemList: Item[];
 }
