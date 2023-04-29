@@ -1,8 +1,10 @@
 import { Injectable } from "@angular/core";
-import { Observable, catchError, delay, flatMap, forkJoin, from, map, mergeMap, of, switchMap, take, toArray } from "rxjs";
-import { Item, WikiThing } from "../state/models/item";
+import { Observable, catchError, from, map, mergeMap, of, switchMap, toArray } from "rxjs";
+import { Item } from "../state/models/item";
 import { BaseService } from "./base.service";
 import { Queue } from "../util/Queue";
+import { WikiThing } from "../state/models/wikiThing";
+import { Cost } from "../state/models/cost";
 
 @Injectable()
 export class ItemsService extends BaseService {
@@ -37,35 +39,60 @@ export class ItemsService extends BaseService {
       return {
         name: wikiThing.name,
         path: wikiThing.path,
-        filename
+        filename,
+        craftingMaterials: [],
       }
     }
 
     return null;
   }
 
-  private getWikiThingFromHtml(html: string): WikiThing | null {
-    const hrefMatches: string[] | null = html.match(/href="(.*?)"/g);
-    const titleMatches: string[] | null = html.match(/title="(.*?)"/g);
+  private getWikiThingFromHtml(html: string): WikiThing | undefined {
+    const name = this.getTitle(html);
+    const path = this.getHrefValue(html);
 
-    if (hrefMatches && hrefMatches.length > 0 && titleMatches && titleMatches.length > 0) {
-      const name = this.getTitle(titleMatches[0]);
-      const path = this.getHrefValue(hrefMatches[0]);
+    if (name && path) {
       return {
         name,
         path
       }
     }
 
-    return null;
+    return undefined;
   }
 
-  private getHrefValue(hrefMatch: string): string {
-    return this.removeLeadingAndTrailingCharacters(hrefMatch, 6, 1);
+  private getAllQuantities(html: string): number[] {
+    return (html.match(/x\s*[0-9]+/g) ?? []).map(quantityMatch =>
+      Number.parseInt(this.removeLeadingAndTrailingCharacters(quantityMatch, 1, 0))
+    );
   }
 
-  private getTitle(titelMatch: string): string {
-    return this.removeLeadingAndTrailingCharacters(titelMatch, 7, 1);
+  private getAllHrefValues(html: string): string[] {
+    return (html.match(/href="(.*?)"/g) ?? []).map(hrefMatch =>
+      this.removeLeadingAndTrailingCharacters(hrefMatch, 6, 1)
+    );
+  }
+
+  private getAllTitles(html: string): string[] {
+    return (html.match(/title="(.*?)"/g) ?? []).map(titelMatch =>
+      this.removeLeadingAndTrailingCharacters(titelMatch, 7, 1)
+    );
+  }
+
+  private getHrefValue(html: string): string | undefined {
+    const matches = this.getAllHrefValues(html);
+
+    if (matches.length > 0) return matches[0];
+
+    return undefined;
+  }
+
+  private getTitle(html: string): string | undefined {
+    const matches = this.getAllTitles(html);
+
+    if (matches.length > 0) return matches[0];
+
+    return undefined;
   }
 
   private removeLeadingAndTrailingCharacters(str: string, leading: number, trailing: number): string {
@@ -105,10 +132,13 @@ export class ItemsService extends BaseService {
             itemWithDetails.internalId = this.getValueBetweenHtmlTags(line);
             break;
           case 'Dropped by':
-            itemWithDetails.droppedBy = this.getWikiThingFromHtml(line) ?? undefined;
+            itemWithDetails.droppedBy = this.getWikiThingFromHtml(line);
             break;
           case 'Weight':
             itemWithDetails.weight = Number.parseFloat(this.getValueBetweenHtmlTags(line));
+            break;
+          case 'Crafting Materials':
+            itemWithDetails.craftingMaterials = [ ...itemWithDetails.craftingMaterials, this.getCraftingMaterials(line) ];
             break;
           default:
             break;
@@ -119,8 +149,8 @@ export class ItemsService extends BaseService {
     return itemWithDetails;
   }
 
-  private getValueBetweenHtmlTags(line: string): string {
-    const htmlTagMatches: string[] | null = line.match(/>(.*?)</g);
+  private getValueBetweenHtmlTags(line: string, index: number = 0): string {
+    const htmlTagMatches: string[] | null = line.substring(index).match(/>(.*?)</g);
     let returnValue = '';
     if (htmlTagMatches && htmlTagMatches.length > 0) {
       htmlTagMatches.forEach((match) => {
@@ -130,5 +160,24 @@ export class ItemsService extends BaseService {
     }
 
     return returnValue;
+  }
+
+  private getCraftingMaterials(line: string): Cost[] {
+    const craftingMaterials: Cost[] = [];
+    const hrefValues = this.getAllHrefValues(line);
+    const titles = this.getAllTitles(line);
+    const quantities = this.getAllQuantities(line);
+
+    for (let i = 0; i < Math.min(hrefValues.length, titles.length, quantities.length); i++) {
+      craftingMaterials.push({
+        wikiThing: {
+          name: titles[i],
+          path: hrefValues[i],
+        },
+        quantity: quantities[i],
+      });
+    }
+
+    return craftingMaterials;
   }
 }
