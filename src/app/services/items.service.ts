@@ -40,7 +40,6 @@ export class ItemsService extends BaseService {
         name: wikiThing.name,
         path: wikiThing.path,
         filename,
-        craftingMaterials: [],
       }
     }
 
@@ -138,7 +137,7 @@ export class ItemsService extends BaseService {
             itemWithDetails.weight = Number.parseFloat(this.getValueBetweenHtmlTags(line));
             break;
           case 'Crafting Materials':
-            itemWithDetails.craftingMaterials = [ ...itemWithDetails.craftingMaterials, this.getCraftingMaterials(line) ];
+            itemWithDetails.craftingMaterials = [ ...itemWithDetails.craftingMaterials ?? [], this.getCraftingMaterials(line) ];
             break;
           default:
             break;

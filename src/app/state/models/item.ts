@@ -3,7 +3,7 @@ import { WikiThing } from "./wikiThing";
 
 export interface Item extends WikiThing {
   filename: string;
-  craftingMaterials: Cost[][];
+  craftingMaterials?: Cost[][];
   type?: string;
   internalId?: string;
   weight?: number;
