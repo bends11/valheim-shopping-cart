@@ -1,7 +1,7 @@
 import { createAction, props } from "@ngrx/store";
 import { Item } from "../models/item";
 
-export const init = createAction('[Items] Initialize Items');
+export const init = createAction('[Startup] Initialize Items');
 
 export const getItemsSuccess = createAction('[Items Effects] Get Items Success', props<{ items: Map<string, Item>}>());
 
