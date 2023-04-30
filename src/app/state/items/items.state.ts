@@ -4,5 +4,5 @@ export interface ItemsState {
   items: Map<string, Item>;
   success: boolean;
   fetching: boolean;
-  itemList: Item[];
+  filter: string;
 }
