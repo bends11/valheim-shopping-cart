@@ -1,0 +1,7 @@
+<mat-toolbar color="primary">
+  <span>Valheim Shopping Cart</span>
+  <span class="spacer"></span>
+  <button mat-button>
+    <mat-icon id="shopping-cart-icon" [matBadge]="cartSize$ | async" [matBadgeHidden]="!(cartSize$ | async)" matBadgeColor="accent" matBadgeSize="small">shopping_cart</mat-icon>
+  </button>
+</mat-toolbar>

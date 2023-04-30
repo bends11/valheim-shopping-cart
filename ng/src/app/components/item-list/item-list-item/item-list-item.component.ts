@@ -14,6 +14,5 @@ export class ItemListItemComponent {
 
   addItemToCart() {
     this.store.dispatch(addItem({ item: this.item, quantity: 1, level: 1 }));
-    console.log('test')
   }
 }

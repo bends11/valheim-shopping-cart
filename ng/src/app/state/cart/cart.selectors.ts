@@ -35,3 +35,10 @@ export const selectCartResources = createSelector(
     return resources;
   }
 )
+
+export const selectCartSize = createSelector(
+  selectCartList,
+  (cart) => cart.length > 0
+    ? cart.map(cartItem => cartItem.quantity).reduce((total, quantity) => total + quantity)
+    : 0
+);
