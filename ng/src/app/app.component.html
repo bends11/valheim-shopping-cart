@@ -1,7 +1,1 @@
-
-<input type="text" [(ngModel)]="filter" (keyup)="onFilterChange()" name>
-<mat-list>
-  <mat-list-item *ngFor="let item of (craftableItems$ | async)">
-    {{ item.name }}
-  </mat-list-item>
-</mat-list>
+<router-outlet></router-outlet>
