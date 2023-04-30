@@ -1,0 +1,11 @@
+div {
+  height: 3rem;
+}
+
+.spacer {
+  flex: 1 1 auto
+}
+
+#shopping-cart-icon {
+  transform: scale(1.5);
+}

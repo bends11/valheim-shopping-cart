@@ -1,5 +1,6 @@
 import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
@@ -19,14 +20,16 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 // Components
 import { ItemListComponent } from './components/item-list/item-list.component';
 import { ItemListItemComponent } from './components/item-list/item-list-item/item-list-item.component';
-import { cartReducer } from './state/cart/cart.reducer';
 import { ItemFilterComponent } from './components/item-filter/item-filter.component';
-import { ItemSearchComponent } from './item-search/item-search.component';
+import { ItemSearchComponent } from './pages/item-search/item-search.component';
 import { AppRoutingModule } from './app-routing.module';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { MatBadgeModule } from '@angular/material/badge';
 
 @NgModule({
   declarations: [
@@ -34,12 +37,14 @@ import { AppRoutingModule } from './app-routing.module';
     ItemListComponent,
     ItemListItemComponent,
     ItemFilterComponent,
-    ItemSearchComponent
+    ItemSearchComponent,
+    ToolbarComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
-    StoreModule.forRoot({ items: itemsReducer, cart: cartReducer }),
+    StoreModule.forRoot({ items: itemsReducer }),
     StoreModule.forFeature(FEATURE_KEY, reducers, { metaReducers }),
     EffectsModule.forRoot([ItemsEffects]),
     HttpClientModule,
@@ -51,6 +56,8 @@ import { AppRoutingModule } from './app-routing.module';
     MatButtonModule,
     MatIconModule,
     AppRoutingModule,
+    MatToolbarModule,
+    MatBadgeModule,
   ],
   providers: [ItemsService],
   bootstrap: [AppComponent]

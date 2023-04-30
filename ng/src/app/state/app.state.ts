@@ -48,3 +48,8 @@ export const selectCartResources = createSelector(
   selectCartState,
   cartSelectors.selectCartResources,
 )
+
+export const selectCartSize = createSelector(
+  selectCartState,
+  cartSelectors.selectCartSize,
+);
