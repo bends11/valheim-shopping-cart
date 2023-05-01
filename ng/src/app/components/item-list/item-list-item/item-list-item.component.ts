@@ -1,6 +1,7 @@
-import { Component, Input, inject } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { addItem } from 'src/app/state/cart/cart.actions';
+import { Observable, map } from 'rxjs';
+import { selectCartState } from 'src/app/state/app.state';
 import { Item } from 'src/app/state/models/item';
 
 @Component({
@@ -8,11 +9,15 @@ import { Item } from 'src/app/state/models/item';
   templateUrl: './item-list-item.component.html',
   styleUrls: ['./item-list-item.component.css']
 })
-export class ItemListItemComponent {
+export class ItemListItemComponent implements OnInit {
   store = inject(Store);
   @Input('item') item!: Item;
 
-  addItemToCart() {
-    this.store.dispatch(addItem({ item: this.item, quantity: 1, level: 1 }));
+  quantity$!: Observable<number>;
+
+  ngOnInit(): void {
+    this.quantity$ = this.store.select(selectCartState).pipe(
+      map((cart) => cart.items.get(this.item.name)?.quantity ?? 0)
+    );
   }
 }

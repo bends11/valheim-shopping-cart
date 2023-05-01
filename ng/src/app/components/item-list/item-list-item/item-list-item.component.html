@@ -1,6 +1,4 @@
 <div id="container">
-  <button mat-mini-fab color="primary" (click)="addItemToCart()">
-    <mat-icon>add</mat-icon>
-  </button>
+  <app-item-quantity-control [item]="item" [quantity]="(quantity$ | async) ?? 0"></app-item-quantity-control>
   <span>{{ item.name }}</span>
 </div>

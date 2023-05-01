@@ -5,6 +5,13 @@
     <mat-icon>search</mat-icon>
   </button>
   <button mat-icon-button routerLink="cart">
-    <mat-icon [matBadge]="cartSize$ | async" [matBadgeHidden]="!(cartSize$ | async)" matBadgeColor="accent" matBadgeSize="small">shopping_cart</mat-icon>
+    <mat-icon
+      [matBadge]="cartSize$ | async"
+      [matBadgeHidden]="!(cartSize$ | async)"
+      matBadgeColor="accent"
+      matBadgeSize="small"
+    >
+      shopping_cart
+    </mat-icon>
   </button>
 </mat-toolbar>

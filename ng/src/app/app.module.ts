@@ -33,6 +33,7 @@ import { ItemFilterComponent } from './components/item-filter/item-filter.compon
 import { ItemSearchComponent } from './pages/item-search/item-search.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { CartComponent } from './pages/cart/cart.component';
+import { ItemQuantityControlComponent } from './components/item-list/item-list-item/item-quantity-control/item-quantity-control.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { CartComponent } from './pages/cart/cart.component';
     ItemFilterComponent,
     ItemSearchComponent,
     ToolbarComponent,
-    CartComponent
+    CartComponent,
+    ItemQuantityControlComponent
   ],
   imports: [
     BrowserModule,

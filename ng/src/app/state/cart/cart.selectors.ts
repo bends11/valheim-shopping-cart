@@ -34,7 +34,7 @@ export const selectCartResources = createSelector(
 
     return Array.from(resources.values());
   }
-)
+);
 
 export const selectCartSize = createSelector(
   selectCartList,
