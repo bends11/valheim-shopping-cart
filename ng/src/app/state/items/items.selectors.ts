@@ -8,5 +8,5 @@ const selectFilter = (state: ItemsState) => state.filter;
 export const selectFilteredCraftableItems = createSelector(
   selectCraftableItems,
   selectFilter,
-  (craftableItems, filter) => craftableItems.filter(item => item.name.toLowerCase().startsWith(filter.toLowerCase()))
+  (craftableItems, filter) => craftableItems.filter(item => item.name.toLowerCase().includes(filter.toLowerCase()))
 )
