@@ -6,6 +6,8 @@ on:
     - dev
     - master
     - deploy-ng-path
+    paths:
+    - ng/**
 
 jobs:
   deploy:
