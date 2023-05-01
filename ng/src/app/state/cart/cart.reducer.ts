@@ -25,6 +25,45 @@ export const cartReducer = createReducer(
       items,
     }
   }),
+  on(cartActions.incrementItemQuantity, (state, { item }) => {
+    const { items } = state;
+    const name = item.name;
+    const currentItem = items.get(name);
+
+    if (currentItem) {
+      items.set(name, {
+        ...currentItem,
+        quantity: currentItem.quantity + 1,
+      });
+    }
+
+    return {
+      ...state,
+      items,
+    }
+  }),
+  on(cartActions.decrementItemQuantity, (state, { item }) => {
+    const { items } = state;
+    const name = item.name;
+    const currentItem = items.get(name);
+
+    if (currentItem) {
+      if (currentItem.quantity <= 1) {
+        items.delete(name);
+      } else {
+        items.set(name, {
+          ...currentItem,
+          quantity: currentItem.quantity - 1,
+        });
+
+      }
+    }
+
+    return {
+      ...state,
+      items,
+    }
+  }),
   on(cartActions.updateItem, (state, { item, quantity, level }) => {
     const { items } = state;
 
