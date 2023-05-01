@@ -15,7 +15,6 @@ jobs:
       uses: actions/checkout@v1
     - name: Install Node
       uses: actions/setup-node@v1
-      working-directory: ./ng
       with:
         node-version: 16.13.2
     - name: Install Node Dependencies
