@@ -14,10 +14,13 @@ jobs:
       uses: actions/checkout@v1
     - name: Install Node
       uses: actions/setup-node@v1
-        with:
-          node-version: 16.13.2
+      with:
+        node-version: 16.13.2
     - name: Install Node Dependencies
+      working-directory: ./ng
       run: npm install
+    - name: Install Angular CLI
+      run: npm install -g @angular/cli > /dev/null
 
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1
