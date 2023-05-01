@@ -5,8 +5,15 @@ const selectCraftableItems = (state: ItemsState) => Array.from(state.items.value
 
 const selectFilter = (state: ItemsState) => state.filter;
 
+const selectState = (state: ItemsState) => state;
+
 export const selectFilteredCraftableItems = createSelector(
   selectCraftableItems,
   selectFilter,
-  (craftableItems, filter) => craftableItems.filter(item => item.name.toLowerCase().includes(filter.toLowerCase()))
+  (craftableItems, filter) => craftableItems.filter(item => item.name.toLowerCase().includes(filter.toLowerCase())),
+)
+
+export const selectItemsFetching = createSelector(
+  selectState,
+  (state) => state.fetching,
 )
