@@ -1,2 +1,5 @@
-<app-item-filter></app-item-filter>
-<app-item-list [items]="craftableItems$ | async"></app-item-list>
+<mat-spinner id="spinner" *ngIf="(fetching$ | async)"></mat-spinner>
+<div *ngIf="!(fetching$ | async)">
+  <app-item-filter></app-item-filter>
+  <app-item-list></app-item-list>
+</div>

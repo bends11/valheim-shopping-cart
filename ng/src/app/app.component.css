@@ -3,3 +3,9 @@
   top: 0;
   z-index: 999;
 }
+
+#container {
+  align-items: center;
+  display:flex;
+  justify-content: center;
+}

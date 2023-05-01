@@ -24,6 +24,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatTableModule } from '@angular/material/table';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 // Components
 import { ItemListComponent } from './components/item-list/item-list.component';
@@ -62,6 +63,7 @@ import { CartComponent } from './pages/cart/cart.component';
     MatToolbarModule,
     MatBadgeModule,
     MatTableModule,
+    MatProgressSpinnerModule,
   ],
   providers: [ItemsService],
   bootstrap: [AppComponent]
