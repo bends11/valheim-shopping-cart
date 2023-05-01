@@ -18,7 +18,12 @@
   </div>
   <div>
     <span>Quantity: </span>
-    <input matInput type="number" [(ngModel)]="quantity" min="1">
+    <input
+      matInput
+      type="number"
+      [(ngModel)]="quantity"
+      min="1"
+      onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))">
   </div>
 </div>
 <div mat-dialog-actions>
