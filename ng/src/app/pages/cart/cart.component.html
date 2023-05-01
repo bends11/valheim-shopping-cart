@@ -1,0 +1,43 @@
+<!-- Cart -->
+<table mat-table [dataSource]="(cart$ | async) ?? []">
+  <!-- Quantity -->
+  <ng-container matColumnDef="quantity">
+    <th mat-header-cell *matHeaderCellDef>Quantity</th>
+    <td mat-cell *matCellDef="let cartItem">{{ cartItem.quantity }}</td>
+  </ng-container>
+
+  <!-- Name -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Item</th>
+    <td mat-cell *matCellDef="let cartItem">{{ cartItem.item.name }}</td>
+  </ng-container>
+
+  <!-- Level -->
+  <ng-container matColumnDef="level">
+    <th mat-header-cell *matHeaderCellDef>Quality</th>
+    <td mat-cell *matCellDef="let cartItem">{{ getDisplayLevel(cartItem) }}</td>
+  </ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="cartColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: cartColumns"></tr>
+</table>
+
+<!-- Resources -->
+<table mat-table [dataSource]="(resources$ | async) ?? []">
+  <!-- Quantity -->
+  <ng-container matColumnDef="quantity">
+    <th mat-header-cell *matHeaderCellDef>Quantity</th>
+    <td mat-cell *matCellDef="let resource">{{ resource.quantity }}</td>
+  </ng-container>
+
+  <!-- Name -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Item</th>
+    <td mat-cell *matCellDef="let resource">{{ resource.wikiThing.name }}</td>
+  </ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="resouresColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: resouresColumns"></tr>
+</table>

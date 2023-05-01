@@ -19,7 +19,7 @@ export const selectCartResources = createSelector(
 
       const level = Math.min(cartItem.level, cartItem.item.craftingMaterials.length);
 
-      for (let i = 0; i++; i < level) {
+      for (let i = 0; i < level; i++) {
         cartItem.item.craftingMaterials[i].forEach(cost => {
           const name = cost.wikiThing.name;
           const currentQuantity = resources.get(name)?.quantity ?? 0;
@@ -32,7 +32,7 @@ export const selectCartResources = createSelector(
       }
     });
 
-    return resources;
+    return Array.from(resources.values());
   }
 )
 
