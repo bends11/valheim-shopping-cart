@@ -25,6 +25,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatTableModule } from '@angular/material/table';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatDialogModule } from '@angular/material/dialog';
 
 // Components
 import { ItemListComponent } from './components/item-list/item-list.component';
@@ -34,6 +35,7 @@ import { ItemSearchComponent } from './pages/item-search/item-search.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { ItemQuantityControlComponent } from './components/item-list/item-list-item/item-quantity-control/item-quantity-control.component';
+import { AddItemDialogComponent } from './components/item-list/item-list-item/add-item-dialog/add-item-dialog.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,8 @@ import { ItemQuantityControlComponent } from './components/item-list/item-list-i
     ItemSearchComponent,
     ToolbarComponent,
     CartComponent,
-    ItemQuantityControlComponent
+    ItemQuantityControlComponent,
+    AddItemDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -66,6 +69,7 @@ import { ItemQuantityControlComponent } from './components/item-list/item-list-i
     MatBadgeModule,
     MatTableModule,
     MatProgressSpinnerModule,
+    MatDialogModule,
   ],
   providers: [ItemsService],
   bootstrap: [AppComponent]

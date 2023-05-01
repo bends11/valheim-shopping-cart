@@ -2,3 +2,18 @@
   display: flex;
   align-items: center;
 }
+
+#quantity {
+  width: 3ch;
+  text-align: center;
+  display: inline-block;
+}
+
+.hide {
+  visibility: hidden;
+}
+
+#add-buttton {
+  margin-left: 4.75px;
+  margin-right: 3.25px;
+}
