@@ -26,7 +26,7 @@ export const selectCartResources = createSelector(
 
           resources.set(name, {
             wikiThing: cost.wikiThing,
-            quantity: currentQuantity + cost.quantity,
+            quantity: currentQuantity + (cost.quantity * cartItem.quantity),
           });
         });
       }

@@ -1,9 +1,12 @@
 <span id="container">
-  <button [disabled]="!quantity" mat-icon-button color="primary" (click)="decrementQuantity()">
+  <button [ngClass]="{ 'hide': !quantity }" mat-icon-button color="primary" (click)="decrementQuantity()">
     <mat-icon>remove</mat-icon>
   </button>
-  <span>{{ quantity }}</span>
-  <button mat-icon-button color="primary" (click)="addOneItemToCart()">
+  <span id="quantity" [ngClass]="{ 'hide': !quantity }">{{ quantity }}</span>
+  <button *ngIf="!!quantity" mat-icon-button color="primary" (click)="incrementQuantity()">
+    <mat-icon>add</mat-icon>
+  </button>
+  <button id="add-buttton" *ngIf="!quantity" mat-mini-fab color="primary" (click)="addItemToCart()">
     <mat-icon>add</mat-icon>
   </button>
 </span>
