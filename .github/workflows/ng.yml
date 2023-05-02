@@ -6,8 +6,8 @@ on:
     - dev
     - master
     - cli-issues
-    paths:
-    - ng/**
+    # paths:
+    # - ng/**
 
 jobs:
   deploy:
