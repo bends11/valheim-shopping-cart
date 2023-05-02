@@ -1,23 +1,26 @@
 <h1 mat-dialog-title>{{ item.name }}</h1>
 <div id="content" mat-dialog-content>
   <div id="level">
-    <span>Quality: </span>
     <app-counter
-      [value]="level"
-      [increment]="incrementLevel"
-      [decrement]="decrementLevel"
+      [(value)]="level"
       [min]="1"
       [max]="item.craftingMaterials?.length ?? 1"
     ></app-counter>
+    <span>Quality</span>
   </div>
   <div>
-    <span>Quantity: </span>
-    <input
+    <app-counter
+      [(value)]="quantity"
+      [min]="1"
+      [allowTyping]="true"
+    ></app-counter>
+    <span>Quantity</span>
+    <!-- <input
       matInput
       type="number"
       [(ngModel)]="quantity"
       min="1"
-      onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))">
+      onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))"> -->
   </div>
 </div>
 <div mat-dialog-actions>

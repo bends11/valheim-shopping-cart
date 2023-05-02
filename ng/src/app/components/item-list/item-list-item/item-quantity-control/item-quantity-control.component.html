@@ -1,7 +1,7 @@
 <span id="container">
   <app-counter
     [ngClass]="{ 'hide': !quantity }"
-    [value]="quantity"
+    [(value)]="quantity"
     [increment]="incrementQuantity"
     [decrement]="decrementQuantity"
   ></app-counter>
