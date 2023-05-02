@@ -5,7 +5,7 @@ on:
     branches:
     - dev
     - master
-    - fix-ng-install
+    - fix-cli-install
     # paths:
     # - ng/**
 
