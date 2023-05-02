@@ -5,8 +5,9 @@ on:
     branches:
     - dev
     - master
-    paths:
-    - ng/**
+    - fix-ng-install
+    # paths:
+    # - ng/**
 
 jobs:
   deploy:
@@ -22,7 +23,8 @@ jobs:
       working-directory: ./ng
       run: npm install
     - name: Install Angular CLI
-      run: npm install -g @angular/cli > /dev/null
+      working-directory: ./ng
+      run: npm install @angular/cli
 
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1
