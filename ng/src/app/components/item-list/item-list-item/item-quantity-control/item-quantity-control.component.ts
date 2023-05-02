@@ -17,11 +17,11 @@ export class ItemQuantityControlComponent {
 
   dialog = inject(MatDialog);
 
-  incrementQuantity() {
+  incrementQuantity = () => {
     this.store.dispatch(incrementItemQuantity({ item: this.item }));
   }
 
-  decrementQuantity() {
+  decrementQuantity = () => {
     this.store.dispatch(decrementItemQuantity({ item: this.item }));
   }
 

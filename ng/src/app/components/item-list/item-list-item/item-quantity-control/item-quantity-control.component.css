@@ -1,6 +1,11 @@
 #container {
   display: flex;
   align-items: center;
+  width: 125px;
+}
+
+#container > * {
+  margin-left: auto;
 }
 
 #quantity {
@@ -13,7 +18,6 @@
   visibility: hidden;
 }
 
-#add-buttton {
-  margin-left: 4.75px;
-  margin-right: 3.25px;
+#add-button {
+  margin-right: 5px;
 }

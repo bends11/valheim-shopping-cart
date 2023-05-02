@@ -36,6 +36,7 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { ItemQuantityControlComponent } from './components/item-list/item-list-item/item-quantity-control/item-quantity-control.component';
 import { AddItemDialogComponent } from './components/item-list/item-list-item/add-item-dialog/add-item-dialog.component';
+import { CounterComponent } from './components/inputs/counter/counter.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { AddItemDialogComponent } from './components/item-list/item-list-item/ad
     ToolbarComponent,
     CartComponent,
     ItemQuantityControlComponent,
-    AddItemDialogComponent
+    AddItemDialogComponent,
+    CounterComponent
   ],
   imports: [
     BrowserModule,
