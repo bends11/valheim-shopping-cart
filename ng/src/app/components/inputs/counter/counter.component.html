@@ -1,0 +1,16 @@
+<div id="container">
+  <button [disabled]="value === min" mat-icon-button color="primary" (click)="decrement()">
+    <mat-icon>remove</mat-icon>
+  </button>
+  <span *ngIf="!allowTyping" class="value">{{ value }}</span>
+  <input
+    type="number"
+    *ngIf="allowTyping"
+    class="value"
+    [(ngModel)]="value"
+    (keyup)="onChange()"
+    onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))">
+  <button [disabled]="value === max" mat-icon-button color="primary" (click)="increment()">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>

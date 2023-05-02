@@ -16,6 +16,7 @@ export class AddItemDialogComponent {
   level = 1;
 
   addItemToCart() {
+    if (this.quantity < 1) return;
     this.store.dispatch(addItem({
       item: this.item,
       quantity: this.quantity,
