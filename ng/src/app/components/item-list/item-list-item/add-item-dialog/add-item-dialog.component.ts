@@ -22,4 +22,8 @@ export class AddItemDialogComponent {
       level: this.level,
     }));
   }
+
+  incrementLevel = () => this.level++;
+
+  decrementLevel = () => this.level--;
 }

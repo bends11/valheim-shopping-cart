@@ -1,20 +1,14 @@
-<h1 mat-dialog-title>Add Item to Cart</h1>
-<div mat-dialog-content>
-  <div>
-    <span>Item: {{ item.name }}</span>
-  </div>
-  <div>
+<h1 mat-dialog-title>{{ item.name }}</h1>
+<div id="content" mat-dialog-content>
+  <div id="level">
     <span>Quality: </span>
-    <input
-      id="level-input"
-      matInput
-      type="number"
-      [(ngModel)]="level"
-      min="1"
+    <app-counter
+      [value]="level"
+      [increment]="incrementLevel"
+      [decrement]="decrementLevel"
+      [min]="1"
       [max]="item.craftingMaterials?.length ?? 1"
-      [disabled]="(item.craftingMaterials?.length ?? 1) <= 1"
-      onkeydown="return false"
-    >
+    ></app-counter>
   </div>
   <div>
     <span>Quantity: </span>

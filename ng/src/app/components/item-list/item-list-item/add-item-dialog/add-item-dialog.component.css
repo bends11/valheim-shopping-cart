@@ -1,4 +1,8 @@
-#level-input {
-  cursor: default;
-  caret-color: transparent;
+#content {
+  margin: 2rem;
+}
+
+#content > * {
+  display: flex;
+  align-items: center;
 }

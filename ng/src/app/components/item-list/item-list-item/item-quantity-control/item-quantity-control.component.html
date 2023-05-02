@@ -1,8 +1,14 @@
 <span id="container">
-  <app-counter *ngIf="!!quantity" [value]="quantity" [increment]="incrementQuantity" [decrement]="decrementQuantity"></app-counter>
-  <div>
-    <button id="add-button" *ngIf="!quantity" mat-mini-fab color="primary" (click)="addItemToCart()">
-      <mat-icon>add</mat-icon>
-    </button>
-  </div>
+  <app-counter
+    [ngClass]="{ 'hide': !quantity }"
+    [value]="quantity"
+    [increment]="incrementQuantity"
+    [decrement]="decrementQuantity"
+  ></app-counter>
+  <button *ngIf="!quantity" mat-mini-fab color="primary" (click)="addItemToCart()">
+    <mat-icon>add</mat-icon>
+  </button>
+  <button *ngIf="!!quantity" mat-mini-fab color="warn" (click)="removeItemFromCart()">
+    <mat-icon>close</mat-icon>
+  </button>
 </span>

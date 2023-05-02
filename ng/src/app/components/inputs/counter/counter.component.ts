@@ -9,5 +9,7 @@ export class CounterComponent {
   @Input('value') value!: number;
   @Input('increment') increment!: () => void;
   @Input('decrement') decrement!: () => void;
+  @Input('min') min?: number;
+  @Input('max') max?: number;
 
 }

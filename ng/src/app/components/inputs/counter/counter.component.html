@@ -1,9 +1,9 @@
 <div id="container">
-  <button mat-icon-button color="primary" (click)="decrement()">
+  <button [disabled]="value === min" mat-icon-button color="primary" (click)="decrement()">
     <mat-icon>remove</mat-icon>
   </button>
   <span id="value">{{ value }}</span>
-  <button mat-icon-button color="primary" (click)="increment()">
+  <button [disabled]="value === max" mat-icon-button color="primary" (click)="increment()">
     <mat-icon>add</mat-icon>
   </button>
 </div>

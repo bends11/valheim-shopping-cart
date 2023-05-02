@@ -6,3 +6,9 @@
   display: flex;
   align-items: center;
 }
+
+#name {
+  max-width: 55%;
+  word-break: break-word;
+  white-space: normal;
+}

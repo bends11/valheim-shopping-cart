@@ -30,4 +30,8 @@ export class ItemQuantityControlComponent {
       data: this.item,
     });
   }
+
+  removeItemFromCart() {
+
+  }
 }

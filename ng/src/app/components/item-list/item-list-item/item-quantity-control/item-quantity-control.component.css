@@ -1,23 +1,8 @@
 #container {
   display: flex;
   align-items: center;
-  width: 125px;
-}
-
-#container > * {
-  margin-left: auto;
-}
-
-#quantity {
-  width: 3ch;
-  text-align: center;
-  display: inline-block;
 }
 
 .hide {
   visibility: hidden;
-}
-
-#add-button {
-  margin-right: 5px;
 }
