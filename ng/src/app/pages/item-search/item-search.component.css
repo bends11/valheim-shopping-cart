@@ -1,3 +1,9 @@
-#spinner {
-  margin: 1rem;
+#container {
+  align-items: center;
+  display:flex;
+  justify-content: center;
+}
+
+#search {
+  width: 100%;
 }
