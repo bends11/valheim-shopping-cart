@@ -1,7 +1,7 @@
 import { Component, Input, inject } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
-import { decrementItemQuantity, incrementItemQuantity } from 'src/app/state/cart/cart.actions';
+import { decrementItemQuantity, incrementItemQuantity, removeItem } from 'src/app/state/cart/cart.actions';
 import { Item } from 'src/app/state/models/item';
 import { AddItemDialogComponent } from '../add-item-dialog/add-item-dialog.component';
 
@@ -32,6 +32,6 @@ export class ItemQuantityControlComponent {
   }
 
   removeItemFromCart() {
-
+    this.store.dispatch(removeItem({ itemName: this.item.name }));
   }
 }
