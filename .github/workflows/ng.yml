@@ -5,9 +5,8 @@ on:
     branches:
     - dev
     - master
-    - fix-cli-install
-    # paths:
-    # - ng/**
+    paths:
+    - ng/**
 
 jobs:
   deploy:
