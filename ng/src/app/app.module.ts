@@ -8,10 +8,8 @@ import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { itemsReducer } from './state/items/items.reducer';
-import { ItemsEffects } from './state/items/items.effects';
 
 import { HttpClientModule } from '@angular/common/http';
-import { ItemsService } from './services/items.service';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { FEATURE_KEY, metaReducers, reducers } from './state/app.state';
 
@@ -57,7 +55,6 @@ import { CounterComponent } from './components/inputs/counter/counter.component'
     FormsModule,
     StoreModule.forRoot({ items: itemsReducer }),
     StoreModule.forFeature(FEATURE_KEY, reducers, { metaReducers }),
-    EffectsModule.forRoot([ItemsEffects]),
     HttpClientModule,
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     // Material
@@ -73,7 +70,7 @@ import { CounterComponent } from './components/inputs/counter/counter.component'
     MatProgressSpinnerModule,
     MatDialogModule,
   ],
-  providers: [ItemsService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

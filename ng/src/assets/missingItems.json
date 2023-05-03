@@ -1,0 +1,34 @@
+[
+  {
+      "name": "Abyssal harpoon",
+      "path": "/wiki/Abyssal_harpoon",
+      "internalId": "SpearChitin",
+      "type": "Spear",
+      "weight": 1.5,
+      "craftingMaterials": [
+          [
+              {
+                  "wikiThing": {
+                      "name": "Fine wood",
+                      "path": "/wiki/Fine_wood"
+                  },
+                  "quantity": 8
+              },
+              {
+                  "wikiThing": {
+                      "name": "Chitin",
+                      "path": "/wiki/Chitin"
+                  },
+                  "quantity": 30
+              },
+              {
+                  "wikiThing": {
+                      "name": "Leather scraps",
+                      "path": "/wiki/Leather_scraps"
+                  },
+                  "quantity": 3
+              }
+          ]
+      ]
+  }
+]

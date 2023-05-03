@@ -1,6 +1,5 @@
 <div id="container">
-  <mat-spinner id="spinner" *ngIf="(fetching$ | async)"></mat-spinner>
-  <div id="search" *ngIf="!(fetching$ | async)">
+  <div id="search">
     <app-item-filter></app-item-filter>
     <app-item-list></app-item-list>
   </div>
