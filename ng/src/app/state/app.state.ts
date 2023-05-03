@@ -33,11 +33,6 @@ export const selectFilteredCraftableItems = createSelector(
   itemsSelectors.selectFilteredCraftableItems,
 );
 
-export const selectItemsFetching = createSelector(
-  selectItemsState,
-  itemsSelectors.selectItemsFetching,
-)
-
 // Cart
 export const selectCartState = createSelector(
   selectSharedState,
