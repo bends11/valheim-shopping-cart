@@ -34,9 +34,9 @@ import { ItemSearchComponent } from './pages/item-search/item-search.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { ItemQuantityControlComponent } from './components/item-list/item-list-item/item-quantity-control/item-quantity-control.component';
-import { AddItemDialogComponent } from './components/item-list/item-list-item/add-item-dialog/add-item-dialog.component';
 import { CounterComponent } from './components/inputs/counter/counter.component';
 import { RemoveItemButtonComponent } from './components/inputs/remove-item-button/remove-item-button.component';
+import { ItemDialogComponent } from './components/dialogs/item-dialog/item-dialog.component';
 
 @NgModule({
   declarations: [
@@ -48,9 +48,9 @@ import { RemoveItemButtonComponent } from './components/inputs/remove-item-butto
     ToolbarComponent,
     CartComponent,
     ItemQuantityControlComponent,
-    AddItemDialogComponent,
     CounterComponent,
-    RemoveItemButtonComponent
+    RemoveItemButtonComponent,
+    ItemDialogComponent
   ],
   imports: [
     BrowserModule,

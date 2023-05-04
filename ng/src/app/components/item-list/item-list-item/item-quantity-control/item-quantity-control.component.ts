@@ -1,9 +1,9 @@
 import { Component, Input, inject } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
+import { ItemDialogComponent, ItemDialogData } from 'src/app/components/dialogs/item-dialog/item-dialog.component';
 import { decrementItemQuantity, incrementItemQuantity, removeItem } from 'src/app/state/cart/cart.actions';
 import { Item } from 'src/app/state/models/item';
-import { AddItemDialogComponent } from '../add-item-dialog/add-item-dialog.component';
 
 @Component({
   selector: 'app-item-quantity-control',
@@ -26,8 +26,15 @@ export class ItemQuantityControlComponent {
   }
 
   addItemToCart() {
-    this.dialog.open(AddItemDialogComponent, {
-      data: this.item,
-    });
+    const data: ItemDialogData = {
+      cartItem: {
+        item: this.item,
+        quantity: 1,
+        level: 1,
+      },
+      updateItemButtonText: 'Add Item',
+    }
+
+    this.dialog.open(ItemDialogComponent, { data });
   }
 }

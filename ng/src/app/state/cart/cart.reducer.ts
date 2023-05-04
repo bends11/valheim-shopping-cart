@@ -9,22 +9,6 @@ export const initialState: CartState = {
 
 export const cartReducer = createReducer(
   initialState,
-  on(cartActions.addItem, (state, { item, quantity, level }) => {
-    const { items } = state;
-    const name = item.name;
-    const currentQuantity = items.get(name)?.quantity ?? 0;
-
-    items.set(name, {
-      item,
-      quantity: currentQuantity + quantity,
-      level,
-    });
-
-    return {
-      ...state,
-      items,
-    }
-  }),
   on(cartActions.incrementItemQuantity, (state, { item }) => {
     const { items } = state;
     const name = item.name;
@@ -64,24 +48,20 @@ export const cartReducer = createReducer(
       items,
     }
   }),
-  on(cartActions.updateItem, (state, { item, quantity, level }) => {
+  on(cartActions.updateItem, (state, { cartItem }) => {
     const { items } = state;
 
-    items.set(item.name, {
-      item,
-      quantity,
-      level
-    });
+    items.set(cartItem.item.name, cartItem);
 
     return {
       ...state,
       items,
     }
   }),
-  on(cartActions.removeItem, (state, { itemName }) => {
+  on(cartActions.removeItem, (state, { item }) => {
     const { items } = state;
 
-    items.delete(itemName);
+    items.delete(item.name);
 
     return {
       ...state,
