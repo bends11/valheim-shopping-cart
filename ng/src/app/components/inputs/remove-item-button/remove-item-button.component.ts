@@ -14,6 +14,6 @@ export class RemoveItemButtonComponent {
 
   removeItemFromCart() {
     if (this.item === undefined) return
-    this.store.dispatch(removeItem({ itemName: this.item.name }));
+    this.store.dispatch(removeItem({ item: this.item }));
   }
 }

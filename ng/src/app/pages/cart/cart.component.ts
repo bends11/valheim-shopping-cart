@@ -1,10 +1,9 @@
 import { Component, inject } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
-import { AddItemDialogComponent } from 'src/app/components/item-list/item-list-item/add-item-dialog/add-item-dialog.component';
+import { ItemDialogComponent, ItemDialogData } from 'src/app/components/dialogs/item-dialog/item-dialog.component';
 import { selectCart, selectCartResources } from 'src/app/state/app.state';
 import { CartItem } from 'src/app/state/cart/models/cart-item';
-import { Item } from 'src/app/state/models/item';
 
 @Component({
   selector: 'app-cart',
@@ -31,9 +30,9 @@ export class CartComponent {
     return undefined;
   }
 
-  edit(item: Item) {
-    this.dialog.open(AddItemDialogComponent, {
-      data: item,
-    });
+  edit(cartItem: CartItem) {
+    const data: ItemDialogData = { cartItem };
+
+    this.dialog.open(ItemDialogComponent, { data });
   }
 }
