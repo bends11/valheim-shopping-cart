@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
-import { ItemDialogComponent, ItemDialogData } from 'src/app/components/dialogs/item-dialog/item-dialog.component';
+import { ItemDialogData, ItemDialogComponent } from 'src/app/components/dialogs/item-dialog/item-dialog.component';
 import { selectCart, selectCartResources } from 'src/app/state/app.state';
 import { CartItem } from 'src/app/state/cart/models/cart-item';
 
@@ -17,7 +17,7 @@ export class CartComponent {
   readonly CART_COLUMNS = ['quantity', 'name', 'level', 'actions'];
 
   resources$ = this.store.select(selectCartResources);
-  readonly RESOURCES_COLUMNS = ['quantity', 'name'];
+  readonly RESOURCES_COLUMNS = ['quantity', 'name', 'actions'];
 
   readonly DISPLAY_CART = 'cart';
   readonly DISPLAY_RESOURCES = 'resources';

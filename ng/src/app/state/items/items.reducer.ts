@@ -24,7 +24,7 @@ export const itemsReducer = createReducer(
 
     missingItemsList.forEach(item => {
       items.set(item.name, item);
-    })
+    });
 
     return {
       ...state,
