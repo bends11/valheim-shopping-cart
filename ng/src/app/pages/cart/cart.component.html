@@ -16,7 +16,7 @@
   <!-- Name -->
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef>Item</th>
-    <td mat-cell *matCellDef="let cartItem">{{ cartItem.item.name }}</td>
+    <td mat-cell *matCellDef="let cartItem"><app-wiki-link [wikiThing]="cartItem.item"></app-wiki-link></td>
   </ng-container>
 
   <!-- Level -->
@@ -52,7 +52,7 @@
   <!-- Name -->
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef>Item</th>
-    <td mat-cell *matCellDef="let resource">{{ resource.wikiThing.name }}</td>
+    <td mat-cell *matCellDef="let resource"><app-wiki-link [wikiThing]="resource.wikiThing"></app-wiki-link></td>
   </ng-container>
 
   <!-- Actions -->

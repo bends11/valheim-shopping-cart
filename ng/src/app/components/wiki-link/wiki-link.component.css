@@ -1,0 +1,9 @@
+#container {
+  display: flex;
+  align-items: center;
+}
+
+a {
+  color: black;
+  margin-right: 0.2rem;
+}
