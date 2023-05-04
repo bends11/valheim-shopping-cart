@@ -5,6 +5,7 @@ import * as cartActions from "./cart.actions";
 
 export const initialState: CartState = {
   items: new Map<string, CartItem>(),
+  decomposedResources: new Set<string>,
 };
 
 export const cartReducer = createReducer(
@@ -67,5 +68,15 @@ export const cartReducer = createReducer(
       ...state,
       items,
     }
-  })
+  }),
+  on(cartActions.decomposeResource, (state, { cost }) => {
+    const { decomposedResources } = state;
+
+    decomposedResources.add(cost.wikiThing.name);
+
+    return {
+      ...state,
+      decomposedResources,
+    }
+  }),
 )

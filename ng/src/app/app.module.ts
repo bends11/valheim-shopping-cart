@@ -37,6 +37,7 @@ import { ItemQuantityControlComponent } from './components/item-list/item-list-i
 import { CounterComponent } from './components/inputs/counter/counter.component';
 import { RemoveItemButtonComponent } from './components/inputs/remove-item-button/remove-item-button.component';
 import { ItemDialogComponent } from './components/dialogs/item-dialog/item-dialog.component';
+import { DecomposeButtonComponent } from './components/inputs/decompose-button/decompose-button.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { ItemDialogComponent } from './components/dialogs/item-dialog/item-dialo
     ItemQuantityControlComponent,
     CounterComponent,
     RemoveItemButtonComponent,
-    ItemDialogComponent
+    ItemDialogComponent,
+    DecomposeButtonComponent
   ],
   imports: [
     BrowserModule,
