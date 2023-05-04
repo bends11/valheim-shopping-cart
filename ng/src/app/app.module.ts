@@ -24,6 +24,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatTableModule } from '@angular/material/table';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 // Components
 import { ItemListComponent } from './components/item-list/item-list.component';
@@ -35,6 +36,7 @@ import { CartComponent } from './pages/cart/cart.component';
 import { ItemQuantityControlComponent } from './components/item-list/item-list-item/item-quantity-control/item-quantity-control.component';
 import { AddItemDialogComponent } from './components/item-list/item-list-item/add-item-dialog/add-item-dialog.component';
 import { CounterComponent } from './components/inputs/counter/counter.component';
+import { RemoveItemButtonComponent } from './components/inputs/remove-item-button/remove-item-button.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,8 @@ import { CounterComponent } from './components/inputs/counter/counter.component'
     CartComponent,
     ItemQuantityControlComponent,
     AddItemDialogComponent,
-    CounterComponent
+    CounterComponent,
+    RemoveItemButtonComponent
   ],
   imports: [
     BrowserModule,
@@ -69,6 +72,7 @@ import { CounterComponent } from './components/inputs/counter/counter.component'
     MatTableModule,
     MatProgressSpinnerModule,
     MatDialogModule,
+    MatButtonToggleModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

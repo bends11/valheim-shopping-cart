@@ -10,7 +10,7 @@ import { Item } from 'src/app/state/models/item';
   styleUrls: ['./add-item-dialog.component.css']
 })
 export class AddItemDialogComponent {
-  store = inject(Store);
+  private store = inject(Store);
   item: Item = inject(MAT_DIALOG_DATA);
   quantity = 1;
   level = 1;

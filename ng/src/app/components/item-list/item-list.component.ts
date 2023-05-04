@@ -10,7 +10,7 @@ import { Item } from 'src/app/state/models/item';
   styleUrls: ['./item-list.component.css']
 })
 export class ItemListComponent {
-  store = inject(Store);
+  private store = inject(Store);
   craftableItems$ = this.store.select(selectFilteredCraftableItems).pipe(
     map(unorderedList => unorderedList.sort(this.sortFunction))
   );

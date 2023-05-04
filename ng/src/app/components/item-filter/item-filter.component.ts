@@ -8,7 +8,7 @@ import { changeFilter } from 'src/app/state/items/items.actions';
   styleUrls: ['./item-filter.component.css']
 })
 export class ItemFilterComponent {
-  store = inject(Store);
+  private store = inject(Store);
   filter = '';
 
   onFilterChange() {
