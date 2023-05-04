@@ -1,4 +1,4 @@
 <div id="container">
   <app-item-quantity-control [item]="item" [quantity]="(quantity$ | async) ?? 0"></app-item-quantity-control>
-  <span id="name">{{ item.name }}</span>
+  <app-wiki-link id="name" [wikiThing]="item"></app-wiki-link>
 </div>
