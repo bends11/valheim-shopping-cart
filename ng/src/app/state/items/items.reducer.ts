@@ -16,13 +16,33 @@ export const itemsReducer = createReducer(
     const items = new Map<string, Item>;
 
     const itemList: Item[] = Array.from(itemsJson) as Item[];
-    const missingItemsList: Item[] = Array.from(missingItemsJson) as Item[];
+    itemList.push(...Array.from(missingItemsJson) as Item[]);
 
     itemList.forEach(item => {
-      items.set(item.name, item);
-    });
-
-    missingItemsList.forEach(item => {
+      if (item.type === 'Metal'
+      && item.craftingMaterials
+      && item.craftingMaterials.length === 1
+      && item.craftingMaterials[0].length === 1) {
+        item.craftingMaterials[0].push({
+          wikiThing: {
+            name: 'Coal',
+            path: '/wiki/Coal',
+          },
+          quantity: 2,
+        });
+      } else if (item.name === 'Coal') {
+        item.craftingMaterials = [
+          [
+            {
+              wikiThing: {
+                name: 'Wood',
+                path: '/wiki/Wood',
+              },
+              quantity: 1,
+            }
+          ]
+        ];
+      }
       items.set(item.name, item);
     });
 
