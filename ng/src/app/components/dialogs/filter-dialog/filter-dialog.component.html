@@ -1,0 +1,9 @@
+<div mat-dialog-content>
+  <ng-container *ngFor="let t of types">
+    <mat-checkbox [checked]="t.selected" (change)="toggle(t.name)">{{ t.name }}</mat-checkbox>
+  </ng-container>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="primary" mat-dialog-close (click)="apply()">Apply</button>
+  <button mat-raised-button mat-dialog-close>Cancel</button>
+</div>

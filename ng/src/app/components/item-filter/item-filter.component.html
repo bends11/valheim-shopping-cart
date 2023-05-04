@@ -1,4 +1,5 @@
 <mat-form-field id="filter">
-  <mat-label>Filter</mat-label>
+  <mat-label>Item Name</mat-label>
   <input matInput type="text" [(ngModel)]="filter" (keyup)="onFilterChange()" name>
 </mat-form-field>
+<app-filter-button [types]="(types$ | async) ?? []"></app-filter-button>
