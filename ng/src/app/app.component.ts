@@ -9,7 +9,7 @@ import { init } from './state/items/items.actions';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent implements OnInit {
-  store = inject(Store);
+  private store = inject(Store);
 
   ngOnInit() {
     this.store.dispatch(init());

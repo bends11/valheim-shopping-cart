@@ -1,11 +1,8 @@
-import { Component, inject } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-item-search',
   templateUrl: './item-search.component.html',
   styleUrls: ['./item-search.component.css']
 })
-export class ItemSearchComponent {
-  store = inject(Store);
-}
+export class ItemSearchComponent {}

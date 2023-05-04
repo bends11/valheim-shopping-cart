@@ -11,7 +11,7 @@ import { AddItemDialogComponent } from '../add-item-dialog/add-item-dialog.compo
   styleUrls: ['./item-quantity-control.component.css']
 })
 export class ItemQuantityControlComponent {
-  store = inject(Store);
+  private store = inject(Store);
   @Input('item') item!: Item;
   @Input('quantity') quantity!: number;
 
@@ -29,9 +29,5 @@ export class ItemQuantityControlComponent {
     this.dialog.open(AddItemDialogComponent, {
       data: this.item,
     });
-  }
-
-  removeItemFromCart() {
-    this.store.dispatch(removeItem({ itemName: this.item.name }));
   }
 }
