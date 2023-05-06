@@ -7,6 +7,6 @@ import { WikiThing } from 'src/app/state/models/wikiThing';
   styleUrls: ['./wiki-link.component.css']
 })
 export class WikiLinkComponent {
-  readonly BASE_URL = 'https://valheim.fandom.com/';
+  readonly BASE_URL = 'https://valheim.fandom.com';
   @Input() wikiThing?: WikiThing;
 }

@@ -47,7 +47,7 @@ export const itemsReducer = createReducer(
         ];
       }
       items.set(item.name, item);
-      if (item.type !== undefined) typeSet.add(item.type);
+      if (item.type !== undefined && item.craftingMaterials) typeSet.add(item.type);
     });
 
     const types: SelectableType[] = [];

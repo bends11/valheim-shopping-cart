@@ -26,6 +26,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 // Components
 import { ItemListComponent } from './components/item-list/item-list.component';
@@ -83,6 +84,7 @@ import { FilterButtonComponent } from './components/item-filter/filter-button/fi
     MatDialogModule,
     MatButtonToggleModule,
     MatCheckboxModule,
+    MatGridListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
