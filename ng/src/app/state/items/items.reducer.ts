@@ -4,16 +4,19 @@ import { createReducer, on } from "@ngrx/store";
 import { Item } from "../models/item";
 import * as itemsJson from "src/assets/items.json";
 import * as missingItemsJson from "src/assets/missingItems.json";
+import { initialFilter } from "../models/filter";
+import { SelectableType } from "../models/selectableType";
 
 export const initialState: ItemsState = {
-  items: new Map<string, Item>,
-  filter: '',
+  items: new Map<string, Item>(),
+  filter: initialFilter,
 };
 
 export const itemsReducer = createReducer(
   initialState,
   on(itemsActions.init, (state) => {
-    const items = new Map<string, Item>;
+    const items = new Map<string, Item>();
+    const typeSet = new Set<string>();
 
     const itemList: Item[] = Array.from(itemsJson) as Item[];
     itemList.push(...Array.from(missingItemsJson) as Item[]);
@@ -44,15 +47,27 @@ export const itemsReducer = createReducer(
         ];
       }
       items.set(item.name, item);
+      if (item.type !== undefined && item.craftingMaterials) typeSet.add(item.type);
     });
 
+    const types: SelectableType[] = [];
+
+    typeSet.forEach(name => types.push({
+      name,
+      selected: false,
+    }));
+
     return {
-      ...state,
       items,
+      filter: { ...state.filter, types },
     }
   }),
-  on(itemsActions.changeFilter, (state, { filter }) => ({
+  on(itemsActions.changeNameFilter, (state, { name }) => ({
     ...state,
-    filter
+    filter: { ...state.filter, name },
   })),
+  on(itemsActions.changeTypeFilter, (state, { types }) => ({
+    ...state,
+    filter: { ...state.filter, types },
+  }))
 );

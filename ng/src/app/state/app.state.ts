@@ -38,6 +38,16 @@ export const selectFilteredCraftableItems = createSelector(
 export const selectItem = createSelector(
   selectItemsState,
   itemsSelectors.selectItems,
+);
+
+export const selectOrderedTypes = createSelector(
+  selectItemsState,
+  itemsSelectors.selectOrderedTypes,
+);
+
+export const selectFilter = createSelector(
+  selectItemsState,
+  itemsSelectors.selectFilter,
 )
 
 // Cart

@@ -25,6 +25,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 // Components
 import { ItemListComponent } from './components/item-list/item-list.component';
@@ -39,6 +41,8 @@ import { RemoveItemButtonComponent } from './components/inputs/remove-item-butto
 import { ItemDialogComponent } from './components/dialogs/item-dialog/item-dialog.component';
 import { DecomposeButtonComponent } from './components/inputs/decompose-button/decompose-button.component';
 import { WikiLinkComponent } from './components/wiki-link/wiki-link.component';
+import { FilterDialogComponent } from './components/dialogs/filter-dialog/filter-dialog.component';
+import { FilterButtonComponent } from './components/item-filter/filter-button/filter-button.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +58,9 @@ import { WikiLinkComponent } from './components/wiki-link/wiki-link.component';
     RemoveItemButtonComponent,
     ItemDialogComponent,
     DecomposeButtonComponent,
-    WikiLinkComponent
+    WikiLinkComponent,
+    FilterDialogComponent,
+    FilterButtonComponent
   ],
   imports: [
     BrowserModule,
@@ -77,6 +83,8 @@ import { WikiLinkComponent } from './components/wiki-link/wiki-link.component';
     MatProgressSpinnerModule,
     MatDialogModule,
     MatButtonToggleModule,
+    MatCheckboxModule,
+    MatGridListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
