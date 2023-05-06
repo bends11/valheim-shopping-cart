@@ -15,7 +15,6 @@ export class FilterDialogComponent {
   types: SelectableType[] = inject(MAT_DIALOG_DATA);
 
   toggle(name: string) {
-    if (!this.types) this.types = [{name, selected: true}];
     this.types = this.types.map(t => ({
       name: t.name,
       selected: t.name === name ? !t.selected : t.selected,
