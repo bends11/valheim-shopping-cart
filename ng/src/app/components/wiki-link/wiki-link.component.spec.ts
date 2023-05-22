@@ -8,7 +8,7 @@ describe('WikiLinkComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WikiLinkComponent ]
+      declarations: [ WikiLinkComponent ],
     })
     .compileComponents();
 

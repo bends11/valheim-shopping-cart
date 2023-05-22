@@ -42,8 +42,8 @@ export const itemsReducer = createReducer(
                 path: '/wiki/Wood',
               },
               quantity: 1,
-            }
-          ]
+            },
+          ],
         ];
       }
       items.set(item.name, item);
@@ -60,7 +60,7 @@ export const itemsReducer = createReducer(
     return {
       items,
       filter: { ...state.filter, types },
-    }
+    };
   }),
   on(itemsActions.changeNameFilter, (state, { name }) => ({
     ...state,

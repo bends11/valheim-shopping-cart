@@ -6,7 +6,7 @@ import { selectOrderedTypes } from 'src/app/state/app.state';
 @Component({
   selector: 'app-item-filter',
   templateUrl: './item-filter.component.html',
-  styleUrls: ['./item-filter.component.css']
+  styleUrls: ['./item-filter.component.css'],
 })
 export class ItemFilterComponent {
   private store = inject(Store);

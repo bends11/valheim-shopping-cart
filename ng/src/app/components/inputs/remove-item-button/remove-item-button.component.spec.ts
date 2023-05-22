@@ -8,7 +8,7 @@ describe('RemoveItemButtonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RemoveItemButtonComponent ]
+      declarations: [ RemoveItemButtonComponent ],
     })
     .compileComponents();
 

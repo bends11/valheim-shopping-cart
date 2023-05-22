@@ -18,7 +18,7 @@ export interface AppState {
 export const reducers: ActionReducerMap<AppState> = {
   itemsState: itemsReducer,
   cartState: cartReducer,
-}
+};
 
 export const metaReducers: MetaReducer<AppState>[] = [];
 
@@ -27,43 +27,43 @@ export const selectSharedState = createFeatureSelector<AppState>(FEATURE_KEY);
 // Items
 export const selectItemsState = createSelector(
   selectSharedState,
-  (sharedItemsFeatureState) => sharedItemsFeatureState.itemsState,
+  (sharedItemsFeatureState) => sharedItemsFeatureState.itemsState
 );
 
 export const selectFilteredCraftableItems = createSelector(
   selectItemsState,
-  itemsSelectors.selectFilteredCraftableItems,
+  itemsSelectors.selectFilteredCraftableItems
 );
 
 export const selectItem = createSelector(
   selectItemsState,
-  itemsSelectors.selectItems,
+  itemsSelectors.selectItems
 );
 
 export const selectOrderedTypes = createSelector(
   selectItemsState,
-  itemsSelectors.selectOrderedTypes,
+  itemsSelectors.selectOrderedTypes
 );
 
 export const selectFilter = createSelector(
   selectItemsState,
-  itemsSelectors.selectFilter,
-)
+  itemsSelectors.selectFilter
+);
 
 // Cart
 export const selectCartState = createSelector(
   selectSharedState,
-  (sharedCartFeatureState) => sharedCartFeatureState.cartState,
+  (sharedCartFeatureState) => sharedCartFeatureState.cartState
 );
 
 export const selectCart = createSelector(
   selectCartState,
-  cartSelectors.selectCart,
+  cartSelectors.selectCart
 );
 
 export const selectCartSize = createSelector(
   selectCartState,
-  cartSelectors.selectCartSize,
+  cartSelectors.selectCartSize
 );
 
 
@@ -71,7 +71,7 @@ export const selectCartSize = createSelector(
 
 export const selectState = createSelector(
   selectSharedState,
-  (sharedState) => sharedState,
+  (sharedState) => sharedState
 );
 
 export const selectCartResources = createSelector(
@@ -116,8 +116,8 @@ function getDecomposedCost(cost: Cost, decomposedResources: Set<string>, items: 
         const newDecomposedCost: Cost = {
           ...c,
           quantity: c.quantity * cost.quantity,
-        }
-        decomposedCost.push(newDecomposedCost)
+        };
+        decomposedCost.push(newDecomposedCost);
       });
     });
   } else {

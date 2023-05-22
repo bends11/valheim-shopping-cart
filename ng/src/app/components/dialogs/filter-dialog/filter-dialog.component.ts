@@ -7,7 +7,7 @@ import { SelectableType } from 'src/app/state/models/selectableType';
 @Component({
   selector: 'app-filter-dialog',
   templateUrl: './filter-dialog.component.html',
-  styleUrls: ['./filter-dialog.component.css']
+  styleUrls: ['./filter-dialog.component.css'],
 })
 export class FilterDialogComponent {
   private store = inject(Store);

@@ -8,7 +8,7 @@ describe('ItemSearchComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ItemSearchComponent ]
+      declarations: [ ItemSearchComponent ],
     })
     .compileComponents();
 

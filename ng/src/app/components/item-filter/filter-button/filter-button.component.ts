@@ -6,7 +6,7 @@ import { SelectableType } from 'src/app/state/models/selectableType';
 @Component({
   selector: 'app-filter-button',
   templateUrl: './filter-button.component.html',
-  styleUrls: ['./filter-button.component.css']
+  styleUrls: ['./filter-button.component.css'],
 })
 export class FilterButtonComponent {
   private dialog = inject(MatDialog);

@@ -8,7 +8,7 @@ describe('ItemQuantityControlComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ItemQuantityControlComponent ]
+      declarations: [ ItemQuantityControlComponent ],
     })
     .compileComponents();
 

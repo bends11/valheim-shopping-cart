@@ -27,10 +27,10 @@ export const selectFilteredCraftableItems = createSelector(
 
 export const selectItems = createSelector(
   selectItemsMap,
-  (items) => items,
+  (items) => items
 );
 
 export const selectOrderedTypes = createSelector(
   selectTypes,
-  (types) => types.sort((a, b) => a.name.localeCompare(b.name)),
+  (types) => types.sort((a, b) => a.name.localeCompare(b.name))
 );

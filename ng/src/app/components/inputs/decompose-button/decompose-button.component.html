@@ -1,1 +1,1 @@
-<button [disabled]="!(canDecompose$ | async)" mat-raised-button color="primary" (click)="decompose()">Decompose</button>
+<button [disabled]="(canDecompose$ | async) === false" mat-raised-button color="primary" (click)="decompose()">Decompose</button>

@@ -6,14 +6,14 @@ import { Item } from 'src/app/state/models/item';
 @Component({
   selector: 'app-remove-item-button',
   templateUrl: './remove-item-button.component.html',
-  styleUrls: ['./remove-item-button.component.css']
+  styleUrls: ['./remove-item-button.component.css'],
 })
 export class RemoveItemButtonComponent {
   private store = inject(Store);
   @Input() item?: Item;
 
   removeItemFromCart() {
-    if (this.item === undefined) return
+    if (this.item === undefined) return;
     this.store.dispatch(removeItem({ item: this.item }));
   }
 }

@@ -8,7 +8,7 @@ import { CartItem } from 'src/app/state/cart/models/cart-item';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css']
+  styleUrls: ['./cart.component.css'],
 })
 export class CartComponent {
   private store = inject(Store);
