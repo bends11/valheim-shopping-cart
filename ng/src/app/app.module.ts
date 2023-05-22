@@ -1,12 +1,11 @@
 import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
 import { itemsReducer } from './state/items/items.reducer';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -60,7 +59,7 @@ import { FilterButtonComponent } from './components/item-filter/filter-button/fi
     DecomposeButtonComponent,
     WikiLinkComponent,
     FilterDialogComponent,
-    FilterButtonComponent
+    FilterButtonComponent,
   ],
   imports: [
     BrowserModule,
@@ -87,6 +86,6 @@ import { FilterButtonComponent } from './components/item-filter/filter-button/fi
     MatGridListModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

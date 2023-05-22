@@ -7,7 +7,7 @@
   <button mat-icon-button routerLink="cart">
     <mat-icon
       [matBadge]="cartSize$ | async"
-      [matBadgeHidden]="!(cartSize$ | async)"
+      [matBadgeHidden]="((cartSize$ | async) ?? 0) < 1"
       matBadgeColor="accent"
       matBadgeSize="small"
     >

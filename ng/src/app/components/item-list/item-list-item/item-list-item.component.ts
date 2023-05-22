@@ -7,11 +7,11 @@ import { Item } from 'src/app/state/models/item';
 @Component({
   selector: 'app-item-list-item',
   templateUrl: './item-list-item.component.html',
-  styleUrls: ['./item-list-item.component.css']
+  styleUrls: ['./item-list-item.component.css'],
 })
 export class ItemListItemComponent implements OnInit {
   private store = inject(Store);
-  @Input('item') item!: Item;
+  @Input() item!: Item;
 
   quantity$!: Observable<number>;
 

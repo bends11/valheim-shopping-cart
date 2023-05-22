@@ -7,7 +7,7 @@ import { Item } from 'src/app/state/models/item';
 @Component({
   selector: 'app-item-list',
   templateUrl: './item-list.component.html',
-  styleUrls: ['./item-list.component.css']
+  styleUrls: ['./item-list.component.css'],
 })
 export class ItemListComponent {
   private store = inject(Store);

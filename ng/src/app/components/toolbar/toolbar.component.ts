@@ -5,7 +5,7 @@ import { selectCartSize } from 'src/app/state/app.state';
 @Component({
   selector: 'app-toolbar',
   templateUrl: './toolbar.component.html',
-  styleUrls: ['./toolbar.component.css']
+  styleUrls: ['./toolbar.component.css'],
 })
 export class ToolbarComponent {
   private store = inject(Store);

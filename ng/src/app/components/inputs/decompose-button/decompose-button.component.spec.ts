@@ -8,7 +8,7 @@ describe('DecomposeButtonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DecomposeButtonComponent ]
+      declarations: [ DecomposeButtonComponent ],
     })
     .compileComponents();
 

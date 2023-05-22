@@ -8,4 +8,4 @@ export interface Filter {
 export const initialFilter: Filter = {
   name: '',
   types: [],
-}
+};

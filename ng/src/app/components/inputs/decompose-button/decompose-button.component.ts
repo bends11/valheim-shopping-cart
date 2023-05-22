@@ -8,7 +8,7 @@ import { Cost } from 'src/app/state/models/cost';
 @Component({
   selector: 'app-decompose-button',
   templateUrl: './decompose-button.component.html',
-  styleUrls: ['./decompose-button.component.css']
+  styleUrls: ['./decompose-button.component.css'],
 })
 export class DecomposeButtonComponent implements OnInit {
   private store = inject(Store);
@@ -24,7 +24,7 @@ export class DecomposeButtonComponent implements OnInit {
 
           return !!craftingMaterials && craftingMaterials.length > 0;
         })
-      )
+      );
   }
 
   decompose() {

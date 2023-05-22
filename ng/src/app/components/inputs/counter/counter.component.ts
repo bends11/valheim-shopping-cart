@@ -3,7 +3,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 @Component({
   selector: 'app-counter',
   templateUrl: './counter.component.html',
-  styleUrls: ['./counter.component.css']
+  styleUrls: ['./counter.component.css'],
 })
 export class CounterComponent {
 
@@ -12,14 +12,14 @@ export class CounterComponent {
       this.value++;
       this.onChange();
     }
-  }
+  };
 
   decrementFunc = () => {
     if (this.value !== undefined) {
       this.value--;
       this.onChange();
     }
-  }
+  };
 
   @Output() valueChange: EventEmitter<number> = new EventEmitter<number>();
   @Input() value?: number;
@@ -27,7 +27,7 @@ export class CounterComponent {
   @Input() decrement: () => void = this.decrementFunc;
   @Input() min?: number;
   @Input() max?: number;
-  @Input() allowTyping: boolean = false;
+  @Input() allowTyping = false;
 
   onChange() {
     this.valueChange.emit(this.value);

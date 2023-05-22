@@ -25,7 +25,7 @@ export const cartReducer = createReducer(
     return {
       ...state,
       items,
-    }
+    };
   }),
   on(cartActions.decrementItemQuantity, (state, { item }) => {
     const { items } = state;
@@ -47,7 +47,7 @@ export const cartReducer = createReducer(
     return {
       ...state,
       items,
-    }
+    };
   }),
   on(cartActions.updateItem, (state, { cartItem }) => {
     const { items } = state;
@@ -57,7 +57,7 @@ export const cartReducer = createReducer(
     return {
       ...state,
       items,
-    }
+    };
   }),
   on(cartActions.removeItem, (state, { item }) => {
     const { items } = state;
@@ -67,7 +67,7 @@ export const cartReducer = createReducer(
     return {
       ...state,
       items,
-    }
+    };
   }),
   on(cartActions.decomposeResource, (state, { cost }) => {
     const { decomposedResources } = state;
@@ -77,6 +77,6 @@ export const cartReducer = createReducer(
     return {
       ...state,
       decomposedResources,
-    }
-  }),
-)
+    };
+  })
+);

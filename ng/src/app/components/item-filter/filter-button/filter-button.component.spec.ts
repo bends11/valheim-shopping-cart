@@ -8,7 +8,7 @@ describe('FilterButtonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FilterButtonComponent ]
+      declarations: [ FilterButtonComponent ],
     })
     .compileComponents();
 
